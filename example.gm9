@@ -3,17 +3,12 @@
 # author: valli
 
 # To use this:
-# 1.  Create a directory/folder in /luma and name it "splash"
-# 2.  Create a directory/folder for each splash screen, named the title of that splash screen.
-# 3.  Place the splash.bin and splashbottom.bin for each splash screen inside their respective folders.
-# 4.  Change the text in quotes by "SPLASHNAME" to the name of the folder you just made, and repeat for each splash screen!
+# 1. Change "SPLASHNAME" (seen below) to the name of the folder your theme will be in. Keep the name in quotes, those are important
+# 2. Rename this file to the same thing, minus the quote marks. Keep the .gm9 extension, though, that's also important.
+# 3. Place the final files in /LSSS/splash/config and run "Add Splash Screens" from the LSSS menu.
+set SPLASHNAME "example"
 
-set SPLASHNAME "Put the name of your splash screen here!"
-
-# For ease of use:
-# 1.  Create a folder in /gm9/scripts and name it "Luma Splash Screens
-# 2.  Rename this file to the name of your splash screen (keeping the .gm9 file extension)
-#     and place it in that folder.
+# For ease of use, make sure you've used the Luma Splash Screen Setter Setup script.
 
 set ERRORMSG "Splash swap failed!\nReason: Unknown"
 
@@ -40,5 +35,5 @@ cp -w -n -o -s $[SPLASHPATH]/splashbottom.bin $[LUMAPATH]/splashbottom.bin
 
 set ERRORMSG "Returning to GodMode9..."
 
-ask "Splash screen set to\n'$[SPLASHNAME]'\nReboot now?"
+ask "Splash screen successfully set to\n'$[SPLASHNAME]'\nReboot now?"
 reboot
