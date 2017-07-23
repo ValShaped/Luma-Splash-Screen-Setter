@@ -1,0 +1,66 @@
+# LSSS Initial Setup
+# It sets up Luma Splash Screen Setter for you, so you don't have to!
+# Author: valli
+
+
+# ask user to confirm setup
+set ERRORMSG "User declined the installation."
+ask "Are you ready to set up LSSS?"
+
+set LSSS "0:/LSSS"
+
+# give an error if the required files are not found.
+set ERRORMSG "Make sure that you have the folder called LSSS *inside* the root of your SD card."
+find "$[LSSS]/template.gm9" NULL
+find "$[LSSS]/addsplash.gm9" NULL
+find "$[LSSS]/information.gm9" NULL
+
+# set up path variables for ease of reuse
+set LUMAPATH   "0:/luma"
+set SPLASHPATH "$[LUMAPATH]/splash"
+set SETTERPATH "0:/gm9/scripts/Luma Splash Screen Setter"
+
+# create LSSS folder, for holding the scripts
+set ERRORMSG "Something went wrong setting up\nLSSS Folder!"
+mkdir "$[SETTERPATH]"
+
+# create folder for holding splash screens in /luma/
+set ERRORMSG "Something went wrong setting up\nSplash folder!"
+mkdir "$[LUMAPATH]/splash"
+
+# move files over to their places
+echo "Done setting up file structure.\nPreparing to move files."
+set ERRORMSG "Could not move 'addsplash'!"
+mv -w "$[LSSS]/addsplash.gm9" "$[SETTERPATH]/_Add Splash Screens.gm9"
+set ERRORMSG "Could not move 'template'!"
+mv -w "$[LSSS]/template.gm9" "$[SPLASHPATH]/template.gm9"
+set ERRORMSG "Could not move 'information'!"
+mv -w "$[LSSS]/information.gm9" "$[SETTERPATH]/_How to Use LSS.gm9"
+
+
+# back up the current splash screen. This will be placed in GM9-Out.
+echo "Backing up current splash screen\n(if there is one!)\nto'$[GM9OUT]/splashbackup"
+mkdir -o -s "$[GM9OUT]/splashbackup"
+cp -o -s  -w"$[LUMAPATH]/splash.bin"       "$[GM9OUT]/splashbackup/splash.bin"
+cp -o -s -w "$[LUMAPATH]/splashbottom.bin" "$[GM9OUT]/splashbackup/splashbottom.bin"
+
+# Move initialization splash screens to the proper places.
+set ERRORMSG "You don't seem to have any\nsplash screens to copy over\n to the initialization directory yet.\nYou can ignore this error!"
+find -o "$[LSSS]/splash" NULL
+mv -o -s "$[LSSS]/splash/config" "$[LSSS]/splash/config-0028759"
+cp -o -s -w "$[LSSS]/splash" $[LUMAPATH]/splash
+mv -o -s "$[LSSS]/splash/config-0028759" "$[LSSS]/splash/config"
+cp -o -s -w "$[LSSS]/splash/config" $[SETTERPATH]
+
+
+#Clean up after the installation
+rm -o -s "$[LSSS]"
+rm -o -s "$[LUMAPATH]/splash/config-0028759"
+rm -o -s
+mkdir -s "$[LSSS]/splash/config"
+
+set ERRORMSG "Installation Complete\n"
+echo "To add splash screens\nplace them inside the /LSSS/splash folder\nand run 'Add Splash Screens'\nin the LSSS tab of the GM9 Script menu."
+echo "Remember to have the modified 'template'\ninside the 'Loader' folder in '/splash'\non the root of your card. You can\nfind the original inside the\n/luma/splash folder."
+echo "To access GodMode9's Script Menu,\npress the HOME Button at the\nmain menu of GodMode9."
+echo "Thanks for installing LSSS! I hope you enjoy using it."

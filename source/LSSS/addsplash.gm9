@@ -1,0 +1,20 @@
+# Luma3DS Splash Screen Setter, Splash Screen Adder module.
+# This will set your Luma3DS splash screen
+# author: valli
+
+set SUCCESSMSG "Splash Screen Installation Complete!"
+set LSSS "0:/LSSS/splash"
+set SCPATH "0:/gm9/scripts/Luma Splash Screen Setter"
+set LUMAPATH "0:/luma"
+
+#renames config folder before copying for easier deletion.
+find -o "$[LSSS]" NULL
+mv -o -s -w "$[LSSS]/config" "$[LSSS]/config-0028759"
+cp -o -s -w "$[LSSS]" "$[LUMAPATH]/splash"
+mv -o -s -w "$[LSSS]/config-0028759" "$[LSSS]/config"
+cp -o -s -w "$[LSSS]/config" $[SCPATH]
+
+rm -o -s "$[LSSS]"
+rm -o -s "$[LUMAPATH]/config-0028759"
+# mkdir -s "$[LSSS]"
+mkdir -s "$[LSSS]/config"

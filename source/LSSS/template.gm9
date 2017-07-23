@@ -1,0 +1,39 @@
+# Luma3DS Splash Screen Setter
+# This will set your Luma3DS splash screen
+# author: valli
+
+# To use this:
+# 1. Change "SPLASHNAME" (seen below) to the name of the folder your theme will be in. Keep the name in quotes, those are important
+# 2. Rename this file to the same thing, minus the quote marks. Keep the .gm9 extension, though, that's also important.
+# 3. Place the final files in /LSSS/splash/config and run "Add Splash Screens" from the LSSS menu.
+set SPLASHNAME "template"
+
+# For ease of use, make sure you've used the Luma Splash Screen Setter Setup script.
+
+set ERRORMSG "Splash swap failed!\nReason: Unknown"
+
+# Files set here for easy configuration
+set LUMAPATH   "0:/luma"
+set SPLASHPATH "$[LUMAPATH]/splash/$[SPLASHNAME]"
+
+set ERRORMSG "Declined splash replacement.\nReturning to GodMode9..."
+ask "Do you want to set\nyour splash screen to\n'$[SPLASHNAME]'?"
+
+# Cleans up files, in case the splash you want to set only has a top or bottom, but not both:
+
+set ERRORMSG "Failed to delete top screen!"
+rm -o -s $[LUMAPATH]/splash.bin
+set ERRORMSG "Failed to delete bottom screen!"
+rm -o -s $[LUMAPATH]/splashbottom.bin
+
+# Copies the files to their new location:
+
+set ERRORMSG "Failed to copy top screen!"
+cp -w -n -o -s $[SPLASHPATH]/splash.bin       $[LUMAPATH]/splash.bin
+set ERRORMSG "Failed to copy bottom screen!"
+cp -w -n -o -s $[SPLASHPATH]/splashbottom.bin $[LUMAPATH]/splashbottom.bin
+
+set ERRORMSG "Returning to GodMode9..."
+
+ask "Splash screen successfully set to\n'$[SPLASHNAME]'\nReboot now?"
+reboot

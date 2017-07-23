@@ -1,0 +1,12 @@
+# Luma3DS Splash Screen Setter, digital manual
+# This will give you information on the use of LSSS
+# author: valli
+
+
+echo "Welcome to\n\nLuma3DS Splash Screen Setter!"
+echo "To add splash screens\nplace them inside the /LSSS/splash folder\nand run 'Add Splash Screens'\nin the LSSS tab of the GM9 Script menu."
+echo "In order for them to show up\nin the LSSS menu, you have to follow the instructions in 'template'"
+echo "Once you have splash screens installed\nand set up properly, you can just\nselect them from the LSSS menu!"
+echo "LSSS asks you to reboot to look\nat the splash screens. This can be\ndeclined without causing issues, don't worry."
+echo "If your splash screens fail\nto display, make sure you\nhave them enabled in Luma3DS. I recommend\n'Before payloads', so you can look at\nthem quickly and get back into GM9."
+set SUCCESSMSG "'I hope you enjoy using this tool!\nI had a lot of fun making it!'\n-Valli"
