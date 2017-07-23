@@ -56,7 +56,7 @@ cp -o -s -w "$[LSSS]/splash/config" $[SETTERPATH]
 #Clean up after the installation
 rm -o -s "$[LSSS]"
 rm -o -s "$[LUMAPATH]/splash/config-0028759"
-rm -o -s
+rm -o -s "0:/Set up LSSS.gm9"
 mkdir -s "$[LSSS]/splash/config"
 
 set ERRORMSG "Installation Complete\n"
