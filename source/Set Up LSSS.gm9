@@ -39,9 +39,10 @@ mv -w "$[LSSS]/information.gm9" "$[SETTERPATH]/_How to Use LSS.gm9"
 
 
 # back up the current splash screen. This will be placed in GM9-Out.
+set ERRORMSG "Could not set up files."
 echo "Backing up current splash screen\n(if there is one!)\nto'$[GM9OUT]/splashbackup"
 mkdir -o -s "$[GM9OUT]/splashbackup"
-cp -o -s  -w"$[LUMAPATH]/splash.bin"       "$[GM9OUT]/splashbackup/splash.bin"
+cp -o -s -w "$[LUMAPATH]/splash.bin"       "$[GM9OUT]/splashbackup/splash.bin"
 cp -o -s -w "$[LUMAPATH]/splashbottom.bin" "$[GM9OUT]/splashbackup/splashbottom.bin"
 
 # Move initialization splash screens to the proper places.
