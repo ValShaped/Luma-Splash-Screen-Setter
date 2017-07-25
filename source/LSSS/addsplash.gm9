@@ -10,11 +10,10 @@ set LUMAPATH "0:/luma"
 #renames config folder before copying for easier deletion.
 find -o "$[LSSS]" NULL
 mv -o -s -w "$[LSSS]/config" "$[LSSS]/config-0028759"
-cp -o -s -w "$[LSSS]" "$[LUMAPATH]/splash"
+cp -o -s -w "$[LSSS]" "$[LUMAPATH]"
 mv -o -s -w "$[LSSS]/config-0028759" "$[LSSS]/config"
 cp -o -s -w "$[LSSS]/config" $[SCPATH]
 
 rm -o -s "$[LSSS]"
 rm -o -s "$[LUMAPATH]/config-0028759"
-# mkdir -s "$[LSSS]"
 mkdir -s "$[LSSS]/config"
