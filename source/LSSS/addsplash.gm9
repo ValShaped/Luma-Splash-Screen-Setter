@@ -5,7 +5,7 @@
 set SUCCESSMSG "Splash Screen Installation Complete!"
 set LSSS "0:/LSSS/splash"
 set SCPATH "0:/gm9/scripts/Luma Splash Screen Setter"
-set LUMAPATH "0:/luma"
+set LUMAPATH "0:/luma/splash"
 
 #renames config folder before copying for easier deletion.
 find -o "$[LSSS]" NULL
