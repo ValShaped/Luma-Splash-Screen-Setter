@@ -1,0 +1,6 @@
+
+	NOTE:
+Put your splash screen configuration files in their respective folders inside this directory. ( 0:/LSSS/splash/config/your-splash-screen-here.gm9 )
+If you have a splash screen named "config", you should rename it, as "config" is reserved for splash screen configurations.
+Thank you for using LSSS! I've gotten word that someone is working on a standalone Arm11 splash screen switcher (completely unrelated to both me and LSSS), so look forward to that!
+    -Valli

@@ -48,9 +48,9 @@ cp -o -s -w "$[LUMAPATH]/splashbottom.bin" "$[GM9OUT]/splashbackup/splashbottom.
 # Move initialization splash screens to the proper places.
 set ERRORMSG "You don't seem to have any\nsplash screens to copy over\n to the initialization directory yet.\nYou can ignore this error!"
 find -o "$[LSSS]/splash" NULL
-mv -o -s "$[LSSS]/splash/config" "$[LSSS]/splash/config-0028759"
+mv -o -s    "$[LSSS]/splash/config" "$[LSSS]/splash/config-0028759"
 cp -o -s -w "$[LSSS]/splash" $[LUMAPATH]/splash
-mv -o -s "$[LSSS]/splash/config-0028759" "$[LSSS]/splash/config"
+mv -o -s    "$[LSSS]/splash/config-0028759" "$[LSSS]/splash/config"
 cp -o -s -w "$[LSSS]/splash/config" $[SETTERPATH]
 
 
