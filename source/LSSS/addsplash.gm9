@@ -3,9 +3,14 @@
 # author: valli
 
 set SUCCESSMSG "Splash Screen Installation Complete!"
+set ERRORMSG "Something went wrong during\nsplash screen installation."
 set LSSS "0:/LSSS/splash"
 set SCPATH "0:/gm9/scripts/Luma Splash Screen Setter"
 set LUMAPATH "0:/luma/splash"
+
+# moves the dummy files
+mv -o -s -w "$[LSSS]/splash screen folders go here.txt" "$[SCPATH]/dummy1"
+mv -o -s -w "$[LSSS]/config/splash screen configs go here.txt" "$[SCPATH]/dummy2"
 
 #renames config folder before copying for easier deletion.
 find -o "$[LSSS]" NULL
@@ -14,6 +19,11 @@ cp -o -s -w "$[LSSS]" "$[LUMAPATH]"
 mv -o -s -w "$[LSSS]/config-0028759" "$[LSSS]/config"
 cp -o -s -w "$[LSSS]/config" $[SCPATH]
 
+# recreates the files
 rm -o -s "$[LSSS]"
 rm -o -s "$[LUMAPATH]/config-0028759"
 mkdir -s "$[LSSS]/config"
+
+#moves the dummy files back to their original positions
+mv -o -s -w "$[SCPATH]/dummy1" "$[LSSS]/splash screen folders go here.txt"
+mv -o -s -w "$[SCPATH]/dummy2" "$[LSSS]/config/splash screen configs go here.txt"
