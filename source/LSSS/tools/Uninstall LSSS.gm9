@@ -3,12 +3,18 @@
 # author: Valli
 
 
+set ERRORMSG "LSSS has not been uninstalled.\nReason: Action canceled by user."
+ask "Are you sure you want to uninstall LSSS?\n(This will also wipe '0:/luma/splash/')"
+
 set INPATH1 "0:/luma/splash"
 set INPATH2 "0:/LSSS"
 set INPATH3 "0:/gm9/scripts/Luma Splash Screen Setter"
 
+set ERRORMSG "'$[INPATH1]'\nwas unable to be removed."
 rm -o $[INPATH1]
+set ERRORMSG "'$[INPATH2]'\nwas unable to be removed."
 rm -o $[INPATH2]
+set ERRORMSG "'$[INPATH3]'\nwas unable to be removed."
 rm -o $[INPATH3]
 
-set SUCCESSMSG "It is done."
+set SUCCESSMSG "LSSS has been removed\nfrom your system.\nYour current splash screen\nhas not been modified."
